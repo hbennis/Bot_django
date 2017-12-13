@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <h4>Dire Bonjour pour commencer</h4>
+    </head>
+</html>
+<form action="{% url "start" %}" method="post">
+{% csrf_token %}
+{{ form.as_p }}
+<input type="submit" value="Submit" />
+</form>

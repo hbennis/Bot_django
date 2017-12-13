@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+{% if not envoi %}<h2>Dire Bonjour pour commencer!</h2>{% endif %}
+
+{% block content %}
+
+    <ul>
+        {% for post in objets %}
+            <li>{{ post }}</li>
+        {% endfor %}
+    </ul>
+
+{% endblock %}
+</html>
+<form action="{% url "view_discussion" %}" method="post">
+{% csrf_token %}
+{{ form.as_p }}
+<input type="submit" value="Submit" />
+</form>
