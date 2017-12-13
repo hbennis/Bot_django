@@ -12,22 +12,22 @@ def home(request):
 
     return render(request, 'bot/accueil.html', locals())
 
-def start_discussion(request):
-
-    instance = Reponse.objects.all()
-    instance.delete()
-
-    form = StartForm(request.POST or None)
-
-    if form.is_valid():
-        texte = form.cleaned_data['texte']
-        reponse_sauvegarde = Reponse(reponse=texte)
-        reponse_sauvegarde.save()
-        envoi = True
-
-        return render(request, 'bot/discussion.html', locals())
-
-    return render(request, 'bot/start.html', locals())
+# def start_discussion(request):
+#
+#     instance = Reponse.objects.all()
+#     instance.delete()
+#
+#     form = StartForm(request.POST or None)
+#
+#     if form.is_valid():
+#         texte = form.cleaned_data['texte']
+#         reponse_sauvegarde = Reponse(reponse=texte)
+#         reponse_sauvegarde.save()
+#         envoi = True
+#
+#         return render(request, 'bot/discussion.html', locals())
+#
+#     return render(request, 'bot/start.html', locals())
 
 
 def view_discussion(request):
