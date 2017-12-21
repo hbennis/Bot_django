@@ -1,19 +1,49 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
-{% if not envoi %}<h2>Dire Bonjour pour commencer!</h2>{% endif %}
-
-{% block content %}
-
-    <ul>
+  <head>
+    <title>Chatbot</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'bot/bootstrap/css/bootstrap.min.css' %}">
+    <link href="{% static 'bot/discussion.css' %}" rel="stylesheet">
+    <!-- Font Awesome File -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="{% static 'bot/bootstrap/css/bootstrap.min.js' %}"></script>
+  </head>
+    <body>
+      <h2 class="text-center" style="color: #fff" >Chatbot</h2>
+      <div class="container">
         {% for post in objets %}
-            <li>{{ post }}</li>
+        <div class="message-candidate center-block">
+          <div class="row">
+            <div class="col-xs-8 col-md-6">
+              <img src="http://imgc.allpostersimages.com/images/P-473-488-90/68/6896/2GOJ100Z/posters/despicable-me-2-minions-movie-poster.jpg" class="message-photo">
+              <h4 class="message-name">Mr. Minion</h4>
+            </div>
+          </div>
+          <div class="row message-text">
+               {{ post }}
+          </div>
+        </div>
         {% endfor %}
-    </ul>
+        <div class="messaging center-block">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="input-group">
+                <span class="input-group-btn">
+                  <form action="{% url 'view_discussion' %}" method="post">
+                    <label for="id_texte" > </label>
+                      <input id="id_texte" type="text" name="texte" class="form-control"/>
+                      {% csrf_token %}
+              </div>
+              <input class="btn btn-default" style="margin-top: 10px;" type="submit" value="Envoyer" />
+              </form>
+            </div>
 
-{% endblock %}
+          </div>
+        </div>
+      </div>
+    </body>
 </html>
-<form action="{% url "view_discussion" %}" method="post">
-{% csrf_token %}
-{{ form.as_p }}
-<input type="submit" value="Submit" />
-</form>

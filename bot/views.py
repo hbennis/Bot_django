@@ -12,24 +12,6 @@ def home(request):
 
     return render(request, 'bot/accueil.html', locals())
 
-# def start_discussion(request):
-#
-#     instance = Reponse.objects.all()
-#     instance.delete()
-#
-#     form = StartForm(request.POST or None)
-#
-#     if form.is_valid():
-#         texte = form.cleaned_data['texte']
-#         reponse_sauvegarde = Reponse(reponse=texte)
-#         reponse_sauvegarde.save()
-#         envoi = True
-#
-#         return render(request, 'bot/discussion.html', locals())
-#
-#     return render(request, 'bot/start.html', locals())
-
-
 def view_discussion(request):
 
     form = DiscussionForm(request.POST or None)
@@ -38,8 +20,8 @@ def view_discussion(request):
     if form.is_valid():
         message = form.cleaned_data['texte']
         envoi = True
-        reponse_sauvegarde = Reponse(reponse = message)
-        reponse_sauvegarde.save()
+        message_sauvegarde = Reponse(reponse = message)
+        message_sauvegarde.save()
         repBot = reponseBot(message)
         repBot_sauvegarde = Reponse(reponse=repBot)
         repBot_sauvegarde.save()

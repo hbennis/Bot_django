@@ -1,10 +1,21 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
-<head>
-    <h4>Dire Bonjour pour commencer</h4>
+    <head>
+        <title>Chatbot</title>
     </head>
+    {% if not envoi %}<h2>Dire Bonjour pour commencer!</h2>{% endif %}
+
+    {% block content %}
+
+        {% for post in objets %}
+                {{ post }}
+        {% endfor %}
+
+
+    {% endblock %}
 </html>
-<form action="{% url "start" %}" method="post">
+<form action="{% url "view_discussion" %}" method="post">
 {% csrf_token %}
 {{ form.as_p }}
 <input type="submit" value="Submit" />
