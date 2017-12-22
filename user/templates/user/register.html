@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% block content %}
+  <h2>Sign up</h2>
+    <form id="registration_form" action="register" method="post">
+                     {% csrf_token %}
+                     {{ form }}
+                         {% if form.errors %}
+                             <p class="error">Sorry, not a valid username</p>
+                         {% endif %}
+
+                     <div id="registration_error" hidden="true">
+                         Invalid username or username already used by someone else.
+                         <br>
+                         Please try another one.
+                     </div>
+                     <label for="username">Username</label>
+                     <input type="text" name="username"/>
+                     <br/>
+                    <label for="email">Email</label>
+                     <input type="text" name="email"/>
+                     <br/>
+                     <label for="password">Password</label>
+                     <input type="password" name="password"/>
+                     <button onclick="register()">Sign Up</button>
+                </form>
+{% endblock %}
+
+</html>
