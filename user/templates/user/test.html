@@ -1,6 +1,5 @@
 {% load static %}
 <!doctype html>
-{% block content %}
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -21,23 +20,21 @@
   <body>
 
 
+    <div class="container">
 
-    {% if form.errors %}
-        <p class="error">Sorry, not a valid username</p>
-    {% endif %}
+        {% if form.errors %}
+            <p class="error">Sorry, not a valid username</p>
+        {% endif %}
 
-    {% if request.user is not None %}
+        {% if request.user is not None %}
 
-                Welcome back {{ request.user.username }}!
-                <a href="logout">Log out</a>
+            Welcome back {{ request.user.username }}!
+            <a href="logout">Log out</a>
         {% else %}
         Please login or <a href="register">register</a>!
 
-
-<br>
-<br>
-
-    <div class="container">
+        <br>
+        <br>
 
         <form id="authentication_form" action="login" method="post" class="form-signin">
             <h2 class="form-signin-heading">Please sign in</h2>
@@ -56,4 +53,3 @@
 
   </body>
 </html>
-{% endblock %}

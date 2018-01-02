@@ -11,7 +11,7 @@ from django.template import loader
 
 
 def home(request):
-    instance = Reponse.objects.all()
+    instance = Reponse.objects.filter(name=request.user.username).all()
     instance.delete()
 
     return render(request, 'bot/accueil.html', locals())
@@ -19,16 +19,16 @@ def home(request):
 def view_discussion(request):
 
     form = DiscussionForm(request.POST or None)
-    objets = Reponse.objects.order_by('created_at')
+    objets = Reponse.objects.filter(name=request.user.username).order_by('created_at')
 
 
     if form.is_valid():
         message = form.cleaned_data['texte']
         envoi = True
-        message_sauvegarde = Reponse(reponse = message, source = "user")
+        message_sauvegarde = Reponse(reponse = message, source = "user", name = request.user.username)
         message_sauvegarde.save()
         repBot = reponseBot(message)
-        repBot_sauvegarde = Reponse(reponse=repBot, source = "bot")
+        repBot_sauvegarde = Reponse(reponse=repBot, source = "bot", name = request.user.username)
         repBot_sauvegarde.save()
 
 

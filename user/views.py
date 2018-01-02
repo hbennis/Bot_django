@@ -13,10 +13,12 @@ def index(request):
         template = loader.get_template('user/index.html')
         user = getFullUserFromRequest(request)
         request.user=user
-        return HttpResponse(template.render(request=request))
+        #return HttpResponse(template.render(request=request))
+        return render(request, 'user/index.html', locals())
     except requests.ConnectionError:
         template = loader.get_template('user/error.html')
-        return HttpResponse(template.render(request=request))
+        #return HttpResponse(template.render(request=request))
+        return render(request, 'user/error.html', locals())
 
 
 def getFullUserFromRequest(request):
@@ -36,7 +38,8 @@ def logIn(request):
     if user is not None:
         login(request, user)
         print("user authenticated")
-        return HttpResponse(template.render(request=request))
+        return render(request, 'bot/accueil.html', locals())
+
     else:
         print("wrong authentication")
         return HttpResponse(template_error.render(request=request))
@@ -59,7 +62,7 @@ def register(request):
                 user.save()
                 print(user)
             login(request, user)
-            return render(request, 'user/index.html')
+            return render(request, 'bot/accueil.html')
     else:
         form = RegisterForm(request.POST)
     return render(request, 'user/register.html', {'form': form})
