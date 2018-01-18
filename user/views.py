@@ -56,13 +56,14 @@ def register(request):
     if request.method == 'POST':
         form = RegisterForm(request.POST)
         if form.is_valid():
+            print(User.objects.filter(username=form.data['username']).exists())
             if User.objects.filter(username=form.data['username']).exists() == False:
 
                 user = User.objects.create_user(form.data['username'], form.data['email'], form.data['password'])
                 user.save()
                 print(user)
-            login(request, user)
-            return render(request, 'bot/accueil.html')
+                login(request, user)
+                return render(request, 'bot/accueil.html')
     else:
         form = RegisterForm(request.POST)
     return render(request, 'user/register.html', {'form': form})

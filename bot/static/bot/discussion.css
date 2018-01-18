@@ -4,14 +4,14 @@ body {
 
 .message-candidate {
   background: #DCDCDC;
-  padding: 5px;
+  padding: 40px;
   max-width: 1000px;
-  margin-bottom: 100px;
+  margin-bottom: 10px;
 }
 
 .messaging {
-  max-width: 1000px;
-  margin-top: 30px;
+  max-width: 40px;
+  margin-top: 10px;
 }
 
 .message-text {
