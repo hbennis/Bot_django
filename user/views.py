@@ -6,6 +6,7 @@ from django.http import HttpResponse
 from django.contrib import auth
 from django.template import loader
 from .forms import RegisterForm
+from bot.models import Reponse
 
 
 def index(request):
@@ -45,6 +46,8 @@ def logIn(request):
         return HttpResponse(template_error.render(request=request))
 
 def logOut(request):
+    instance = Reponse.objects.filter(name=request.user.username).all()
+    instance.delete()
     auth.logout(request)
     return index(request)
 

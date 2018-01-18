@@ -28,7 +28,7 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
-
+  {% if user.is_authenticated %}
   <body style="background-color: #1f263b;">
 
     <div class="site-wrapper">
@@ -69,11 +69,9 @@
 
     </div>
 
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
-    <script src="{% static 'bot/bootstrap/js/bootstrap.min.js' %}"></script>
+    {% else %}
+    <h4><a href="{% url 'index' %}">Please sign in</a></h4>
+    {% endif %}
+
   </body>
 </html>

@@ -11,8 +11,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   </head>
+   {% if user.is_authenticated %}
     <body>
-
       <div class="site-wrapper">
         <div class="site-wrapper-inner">
           <div class="cover-container">
@@ -30,6 +30,7 @@
           </div>
         </div>
       </div>
+      <br>
       <div class="container">
         {% for post in objets %}
         <div class="message-candidate center-block">
@@ -46,11 +47,6 @@
           </div>
          </div>
         {% endfor %}
-
-
-
-
-
         <div class="messaging center-block">
           <div class="row">
             <div class="col-md-12">
@@ -69,4 +65,10 @@
         </div>
       </div>
     </body>
+    {% else %}
+    <body bgcolor="#fff">
+    <h4><a href="{% url 'index' %}">Please sign in</a></h4>
+    </body>
+    {% endif %}
+
 </html>
