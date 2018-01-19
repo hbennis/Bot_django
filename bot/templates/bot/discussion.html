@@ -10,9 +10,10 @@
     <!-- Font Awesome File -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="{% static 'bot/bootstrap/css/bootstrap.min.js' %}"></script>
   </head>
-   {% if user.is_authenticated %}
     <body>
+       {% if user.is_authenticated %}
       <div class="site-wrapper">
         <div class="site-wrapper-inner">
           <div class="cover-container">
@@ -56,9 +57,9 @@
                     <label for="id_texte" > </label>
                       <input id="id_texte" type="text" name="texte" class="form-control"/>
                       {% csrf_token %}
-              </div>
-              <input class="btn btn-default" style="margin-top: 10px;" type="submit" value="Envoyer" />
-              </form>
+                    </div>
+                    <input class="btn btn-default" style="margin-top: 10px;" type="submit" value="Envoyer" />
+                  </form>
             </div>
 
           </div>
@@ -66,9 +67,8 @@
       </div>
     </body>
     {% else %}
-    <body bgcolor="#fff">
     <h4><a href="{% url 'index' %}">Please sign in</a></h4>
-    </body>
     {% endif %}
+    </body>
 
 </html>
