@@ -3,11 +3,9 @@ from .models import Reponse
 from django.contrib.auth import login, authenticate
 from django.shortcuts import render
 from django.contrib.auth.models import User
-from EcpBtBot.MainClass import reponseBot
-import requests
+from EcpBtBot.MainClass import API_reponse
 from django.http import HttpResponse
-from django.contrib import auth
-from django.template import loader
+
 
 
 def home(request):
@@ -16,18 +14,22 @@ def home(request):
 
     return render(request, 'bot/accueil.html', locals())
 
-def view_discussion(request):
+def view_discussion(request, sujet):
 
+    #if connexion = null then connexion = API_reponse(sujet)
+        #sinon  (connexion.sujet <> sujet alors connexion = API_reponse(sujet))
+
+
+    connexion = API_reponse(sujet)
     form = DiscussionForm(request.POST or None)
     objets = Reponse.objects.filter(name=request.user.username).order_by('created_at')
-
-
     if form.is_valid():
+
         message = form.cleaned_data['texte']
         envoi = True
         message_sauvegarde = Reponse(reponse = message, source = "user", name = request.user.username)
         message_sauvegarde.save()
-        repBot = reponseBot(message)
+        repBot = connexion.reponseBot(message)
         repBot_sauvegarde = Reponse(reponse=repBot, source = "bot", name = request.user.username)
         repBot_sauvegarde.save()
 

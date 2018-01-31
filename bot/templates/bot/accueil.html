@@ -52,9 +52,14 @@
           <div class="inner cover">
             <h1 class="cover-heading">Apprendre le français</h1>
             <p class="lead">Venez discuter avec Dean pour apprendre le Français</p>
-            <p class="lead">
-              <a href="{% url 'view_discussion' %}" class="btn btn-lg btn-default">Démarrer</a>
-            </p>
+            <br>
+            <br>
+              <div>
+                <a href="{% url 'view_discussion' 'sepresenter' %}" class="btn btn-lg btn-default" class="lead">Se présenter</a>
+                <a href="{% url 'view_discussion' 'boulangerie' %}" class="btn btn-lg btn-default" class="lead">Boulangerie</a>
+                <a href="{% url 'view_discussion' 'hotel' %}" class="btn btn-lg btn-default" class="lead">Hotel</a>
+                <a href="{% url 'view_discussion' 'restaurant' %}" class="btn btn-lg btn-default" class="lead">Restaurant</a>
+              </div>
           </div>
 
           <div class="mastfoot">
