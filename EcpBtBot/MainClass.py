@@ -6,6 +6,8 @@ from .Conversational_Integration import *
 
 print("Dire Bonjour pour commencer \n")
 
+dico_connexions = {}
+
 class API_reponse:
 
     def __init__(self, sujet):
@@ -43,4 +45,3 @@ class API_reponse:
             context = None
 
         return rep.result.fulfillment.speech
-
