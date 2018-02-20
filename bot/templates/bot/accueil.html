@@ -17,11 +17,10 @@
 
 
     <!-- Custom styles for this template -->
-    <link href="{% static 'bot/cover.css' %}" rel="stylesheet">
+    <link href="{% static 'bot/cover.css' %}" rel="stylesheet" href="styles.css?version=1">
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -29,8 +28,8 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
-
-  <body>
+  {% if user.is_authenticated %}
+  <body style="background-color: #1f263b;">
 
     <div class="site-wrapper">
 
@@ -40,12 +39,11 @@
 
           <div class="masthead clearfix">
             <div class="inner">
-              <h3 class="masthead-brand">Accueil</h3>
+              <h3 class="masthead-brand">{{ request.user.id }}</h3>
               <nav>
                 <ul class="nav masthead-nav">
                   <li class="active"><a href="#">Accueil</a></li>
-                  <li><a href="#">Recherche</a></li>
-                  <li><a href="#">Deconnexion</a></li>
+                  <li><a href="{% url 'logOut' %}">Deconnexion</a></li>
                 </ul>
               </nav>
             </div>
@@ -54,9 +52,14 @@
           <div class="inner cover">
             <h1 class="cover-heading">Apprendre le français</h1>
             <p class="lead">Venez discuter avec Dean pour apprendre le Français</p>
-            <p class="lead">
-              <a href="{% url 'view_discussion' %}" class="btn btn-lg btn-default">Démarrer</a>
-            </p>
+            <br>
+            <br>
+              <div>
+                <a href="{% url 'view_discussion' 'sepresenter' %}" class="btn btn-lg btn-default" class="lead">Se présenter</a>
+                <a href="{% url 'view_discussion' 'boulangerie' %}" class="btn btn-lg btn-default" class="lead">Boulangerie</a>
+                <a href="{% url 'view_discussion' 'hotel' %}" class="btn btn-lg btn-default" class="lead">Hotel</a>
+                <a href="{% url 'view_discussion' 'restaurant' %}" class="btn btn-lg btn-default" class="lead">Restaurant</a>
+              </div>
           </div>
 
           <div class="mastfoot">
@@ -71,11 +74,9 @@
 
     </div>
 
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
-    <script src="{% static 'bot/bootstrap/js/bootstrap.min.js' %}"></script>
+    {% else %}
+    <h4><a href="{% url 'index' %}">Please sign in</a></h4>
+    {% endif %}
+
   </body>
 </html>

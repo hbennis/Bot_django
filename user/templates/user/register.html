@@ -1,0 +1,53 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../../../favicon.ico">
+
+    <title>Signin Template for Bootstrap</title>
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'user/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="{% static 'user/signin.css' %}" rel="stylesheet">
+  </head>
+
+<body>
+{% block content %}
+
+    <div class="container">
+
+
+
+        <form id="authentication_form" action="register" method="post" class="form-signin">
+            <h2 class="form-signin-heading">Please sign up</h2>
+            {% csrf_token %}
+            {{ form }}
+            {% if form.errors %}
+            <p class="error">Sorry, not a valid username</p>
+            {% endif %}
+
+            <div id="registration_error" hidden="true">
+                Invalid username or username already used by someone else.
+                <br>
+                Please try another one.
+            </div>
+            <label for="username" class="sr-only">Username: </label>
+            <input type="text" name="username" id="username" class="form-control" placeholder="Username" required autofocus>
+            <label for="email" class="sr-only">Password: </label>
+            <input type="text" name="email" id="email" class="form-control" placeholder="Email" required autofocus>
+            <label for="password" class="sr-only">Password: </label>
+            <input type="password" name="password" id="password" class="form-control" placeholder="Password" required>
+
+            <button class="btn btn-lg btn-primary btn-block" type="submit" onclick="register()">Sign up</button>
+        </form>
+    </div>
+
+{% endblock %}
+
+</body>
+</html>

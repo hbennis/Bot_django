@@ -1,0 +1,34 @@
+body {
+    background-image: url("/static/bot/space.jpeg");
+}
+
+.message-candidate {
+  background: #DCDCDC;
+  padding: 5px;
+  max-width: 1000px;
+  margin-bottom: 10px;
+}
+
+.messaging {
+  max-width: 1000px;
+  margin-top: 20px;
+}
+
+.message-text {
+  margin-top: 8px;
+  margin-left: 10px;
+}
+
+.message-photo {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center center;
+  display: inline-block;
+}
+
+.message-name {
+  margin-left: 10px;
+  display: inline-block;
+}
