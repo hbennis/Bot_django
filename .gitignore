@@ -1,0 +1,9 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/Bot_django2/v15/.suo
+/.vs/VSWorkspaceState.json
+/.vs/slnx.sqlite
+/Bot_django2.pyproj
+/.vs/.gitlab

@@ -14,11 +14,9 @@ def index(request):
         template = loader.get_template('user/index.html')
         user = getFullUserFromRequest(request)
         request.user=user
-        #return HttpResponse(template.render(request=request))
         return render(request, 'user/index.html', locals())
     except requests.ConnectionError:
         template = loader.get_template('user/error.html')
-        #return HttpResponse(template.render(request=request))
         return render(request, 'user/error.html', locals())
 
 

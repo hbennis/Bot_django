@@ -26,22 +26,4 @@ class API_reponse:
 
         rep = Response(self.ai._get_json_response(user_message))
 
-        try:
-            _result = rep.result
-            _action = rep.result.action
-            _intent = rep.result.metadata.intentName
-        except:
-            pass
-
-        #if _intent == "AuRevoir":
-            #SendingMessage("Au revoir !")
-
-        actionIncomplete = rep.result.actionIncomplete
-        contexts = rep.result.contexts
-
-        if len(contexts) > 0:
-            context = contexts[0]
-        else:
-            context = None
-
         return rep.result.fulfillment.speech

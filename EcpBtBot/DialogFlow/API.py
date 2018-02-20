@@ -1,4 +1,6 @@
 import json
+import sys
+import os
 
 try:
     import apiai

@@ -1,11 +1,7 @@
 from .forms import DiscussionForm
 from .models import Reponse
-from django.contrib.auth import login, authenticate
 from django.shortcuts import render
-from django.contrib.auth.models import User
 from EcpBtBot.MainClass import *
-from django.http import HttpResponse
-
 
 
 def home(request):
@@ -15,9 +11,6 @@ def home(request):
     return render(request, 'bot/accueil.html', locals())
 
 def view_discussion(request, sujet):
-
-    #if connexion = null then connexion = API_reponse(sujet)
-        #sinon  (connexion.sujet <> sujet alors connexion = API_reponse(sujet))
 
     if sujet not in dico_connexions:
         connexion = API_reponse(sujet)
@@ -37,7 +30,6 @@ def view_discussion(request, sujet):
         repBot = connexion.reponseBot(message)
         repBot_sauvegarde = Reponse(reponse=repBot, source = "bot", name = request.user.username)
         repBot_sauvegarde.save()
-
 
         return render(request, 'bot/discussion.html', locals())
 
