@@ -6,7 +6,8 @@ from .Conversational_Integration import *
 
 print("Dire Bonjour pour commencer \n")
 
-dico_connexions = {}
+dico_users = {}
+#dictionnaire (var globale): pour chaque clé (user), on a un dictionnaire de connexions API en fonction des thèmes
 
 class API_reponse:
 
@@ -21,7 +22,7 @@ class API_reponse:
             self.ai = API_Boulangerie()
 
     def reponseBot(self, message):
-
+        #user_id = user
         user_message = message
 
         rep = Response(self.ai._get_json_response(user_message))

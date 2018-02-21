@@ -3,7 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="e5ca89d9-afe6-46c1-8661-048630b06813" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+<<<<<<< HEAD
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
+=======
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bot/templates/bot/discussion.html" afterPath="$PROJECT_DIR$/bot/templates/bot/discussion.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bot/views.py" afterPath="$PROJECT_DIR$/bot/views.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/user/views.py" afterPath="$PROJECT_DIR$/user/views.py" />
+>>>>>>> multi-users
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -17,12 +23,20 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bot/views.py">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="-76">
               <caret line="18" column="20" lean-forward="false" selection-start-line="18" selection-start-column="20" selection-end-line="18" selection-end-column="20" />
               <folding>
                 <element signature="e#0#33#0" expanded="true" />
                 <marker date="1519236776000" expanded="true" signature="0:5" ph="import ..." />
                 <marker date="1519236776000" expanded="true" signature="1057:1122" ph="..." />
+=======
+            <state relative-caret-position="-1">
+              <caret line="23" column="20" lean-forward="false" selection-start-line="23" selection-start-column="20" selection-end-line="23" selection-end-column="20" />
+              <folding>
+                <element signature="e#0#33#0" expanded="true" />
+                <marker date="1519235818000" expanded="true" signature="0:5" ph="import ..." />
+>>>>>>> multi-users
               </folding>
             </state>
           </provider>
@@ -54,6 +68,7 @@
             <state relative-caret-position="735">
               <caret line="49" column="16" lean-forward="false" selection-start-line="49" selection-start-column="16" selection-end-line="49" selection-end-column="16" />
               <folding>
+<<<<<<< HEAD
                 <marker date="1519236776000" expanded="true" signature="1586:1813" ph="..." />
                 <marker date="1519236776000" expanded="true" signature="1632:1792" ph="..." />
                 <marker date="1519236776000" expanded="true" signature="1886:2626" ph="..." />
@@ -61,6 +76,9 @@
                 <marker date="1519236776000" expanded="true" signature="2660:2767" ph="..." />
                 <marker date="1519236776000" expanded="true" signature="2692:2750" ph="..." />
                 <marker date="1519236776000" expanded="true" signature="2903:2912" ph="..." />
+=======
+                <marker date="1519233635000" expanded="true" signature="2909:2918" ph="..." />
+>>>>>>> multi-users
               </folding>
             </state>
           </provider>
@@ -82,6 +100,7 @@
         <entry file="file://$PROJECT_DIR$/bot/templates/bot/discussion.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="225">
+<<<<<<< HEAD
               <caret line="15" column="34" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="34" />
               <folding>
                 <marker date="1519236776000" expanded="true" signature="742:1311" ph="..." />
@@ -105,6 +124,10 @@
                 <marker date="1519236776000" expanded="true" signature="6179:6383" ph="..." />
                 <marker date="1519236776000" expanded="false" signature="6449:6466" ph="..." />
               </folding>
+=======
+              <caret line="15" column="31" lean-forward="false" selection-start-line="15" selection-start-column="10" selection-end-line="15" selection-end-column="31" />
+              <folding />
+>>>>>>> multi-users
             </state>
           </provider>
         </entry>
@@ -114,6 +137,7 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="15">
               <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+<<<<<<< HEAD
               <folding>
                 <marker date="1519236776000" expanded="true" signature="75:236" ph="..." />
                 <marker date="1519236776000" expanded="true" signature="331:681" ph="..." />
@@ -127,6 +151,9 @@
                 <marker date="1519236776000" expanded="true" signature="1362:1552" ph="..." />
                 <marker date="1519236776000" expanded="true" signature="1671:1758" ph="..." />
               </folding>
+=======
+              <folding />
+>>>>>>> multi-users
             </state>
           </provider>
         </entry>
@@ -134,8 +161,13 @@
       <file leaf-file-name="MainClass.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/EcpBtBot/MainClass.py">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="315">
               <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+=======
+            <state relative-caret-position="330">
+              <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+>>>>>>> multi-users
               <folding>
                 <element signature="e#1#10#0" expanded="true" />
               </folding>
@@ -156,8 +188,13 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/user/views.py">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="465">
               <caret line="31" column="0" lean-forward="true" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+=======
+            <state relative-caret-position="480">
+              <caret line="32" column="0" lean-forward="true" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+>>>>>>> multi-users
               <folding>
                 <element signature="e#0#51#0" expanded="true" />
               </folding>
@@ -226,6 +263,7 @@
         <option value="$PROJECT_DIR$/user/templates/user/register.html" />
         <option value="$PROJECT_DIR$/bot/static/bot/discussion.css" />
         <option value="$PROJECT_DIR$/bot/urls.py" />
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/bot/templates/bot/discussion.html" />
         <option value="$PROJECT_DIR$/EcpBtBot/DialogFlow/API.py" />
         <option value="$PROJECT_DIR$/EcpBtBot/MainClass.py" />
@@ -234,6 +272,14 @@
         <option value="$PROJECT_DIR$/bot/templates/bot/accueil.html" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/.gitignore.orig" />
+=======
+        <option value="$PROJECT_DIR$/bot/templates/bot/accueil.html" />
+        <option value="$PROJECT_DIR$/EcpBtBot/MainClass.py" />
+        <option value="$PROJECT_DIR$/EcpBtBot/DialogFlow/API.py" />
+        <option value="$PROJECT_DIR$/bot/templates/bot/discussion.html" />
+        <option value="$PROJECT_DIR$/bot/views.py" />
+        <option value="$PROJECT_DIR$/user/views.py" />
+>>>>>>> multi-users
       </list>
     </option>
   </component>
@@ -243,7 +289,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="y" value="22" />
     <option name="width" value="1280" />
     <option name="height" value="713" />
@@ -535,6 +581,19 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+<<<<<<< HEAD
+=======
+    <entry file="file://$PROJECT_DIR$/Dialogflow_API/DialogFlow/API.py" />
+    <entry file="file://$PROJECT_DIR$/Bot_django/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bot/static/bot/style.css" />
+    <entry file="file://$PROJECT_DIR$/cover.css" />
+>>>>>>> multi-users
     <entry file="file://$PROJECT_DIR$/bot/templates/bot/start.html" />
     <entry file="file://$PROJECT_DIR$/bot/templates/bot/test.html" />
     <entry file="file://$PROJECT_DIR$/bot/migrations/0003_auto_20171221_0936.py" />
@@ -632,6 +691,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/bot/static/bot/cover.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="239">
@@ -654,6 +714,9 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/EcpBtBot/DialogFlow/Response.py">
+=======
+    <entry file="file://$PROJECT_DIR$/user/urls.py">
+>>>>>>> multi-users
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -703,34 +766,74 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+<<<<<<< HEAD
+=======
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/user/views.py">
+    <entry file="file://$PROJECT_DIR$/bot/models.py">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="12" column="22" lean-forward="false" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bot/tests.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bot/forms.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding />
+>>>>>>> multi-users
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bot/templates/bot/accueil.html">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="465">
           <caret line="31" column="0" lean-forward="true" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
           <folding>
             <element signature="e#0#51#0" expanded="true" />
+=======
+        <state relative-caret-position="735">
+          <caret line="49" column="16" lean-forward="false" selection-start-line="49" selection-start-column="16" selection-end-line="49" selection-end-column="16" />
+          <folding>
+            <marker date="1519233635000" expanded="true" signature="2909:2918" ph="..." />
+>>>>>>> multi-users
           </folding>
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/Bot_django/views.py">
+=======
+    <entry file="file://$PROJECT_DIR$/EcpBtBot/DialogFlow/Response.py">
+>>>>>>> multi-users
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/user/urls.py">
+=======
+    <entry file="file://$PROJECT_DIR$/bot/apps.py">
+>>>>>>> multi-users
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
@@ -739,12 +842,24 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Bot_django/wsgi.py">
+=======
+    <entry file="file://$PROJECT_DIR$/Bot_django/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bot/admin.py">
+>>>>>>> multi-users
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/.gitignore.orig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
@@ -769,11 +884,19 @@
             <marker date="1519236776000" expanded="true" signature="1362:1552" ph="..." />
             <marker date="1519236776000" expanded="true" signature="1671:1758" ph="..." />
           </folding>
+=======
+    <entry file="file://$PROJECT_DIR$/EcpBtBot/Conversational_Integration.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+>>>>>>> multi-users
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bot/templates/bot/accueil.html">
+    <entry file="file://$PROJECT_DIR$/EcpBtBot/MainClass.py">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="735">
           <caret line="49" column="16" lean-forward="false" selection-start-line="49" selection-start-column="16" selection-end-line="49" selection-end-column="16" />
           <folding>
@@ -784,12 +907,19 @@
             <marker date="1519236776000" expanded="true" signature="2660:2767" ph="..." />
             <marker date="1519236776000" expanded="true" signature="2692:2750" ph="..." />
             <marker date="1519236776000" expanded="true" signature="2903:2912" ph="..." />
+=======
+        <state relative-caret-position="330">
+          <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+          <folding>
+            <element signature="e#1#10#0" expanded="true" />
+>>>>>>> multi-users
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bot/templates/bot/discussion.html">
+    <entry file="file://$PROJECT_DIR$/EcpBtBot/DialogFlow/API.py">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="225">
           <caret line="15" column="34" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="34" />
           <folding>
@@ -835,10 +965,33 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
           <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+=======
+        <state relative-caret-position="15">
+          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/bot/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bot/templates/bot/discussion.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="31" lean-forward="false" selection-start-line="15" selection-start-column="10" selection-end-line="15" selection-end-column="31" />
+>>>>>>> multi-users
+          <folding />
+        </state>
+      </provider>
+    </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/bot/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
@@ -859,18 +1012,34 @@
           <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
           <folding>
             <element signature="e#0#32#0" expanded="true" />
+=======
+    <entry file="file://$PROJECT_DIR$/bot/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1">
+          <caret line="23" column="20" lean-forward="false" selection-start-line="23" selection-start-column="20" selection-end-line="23" selection-end-column="20" />
+          <folding>
+            <element signature="e#0#33#0" expanded="true" />
+            <marker date="1519235818000" expanded="true" signature="0:5" ph="import ..." />
+>>>>>>> multi-users
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bot/views.py">
+    <entry file="file://$PROJECT_DIR$/user/views.py">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="-76">
           <caret line="18" column="20" lean-forward="false" selection-start-line="18" selection-start-column="20" selection-end-line="18" selection-end-column="20" />
           <folding>
             <element signature="e#0#33#0" expanded="true" />
             <marker date="1519236776000" expanded="true" signature="0:5" ph="import ..." />
             <marker date="1519236776000" expanded="true" signature="1057:1122" ph="..." />
+=======
+        <state relative-caret-position="480">
+          <caret line="32" column="0" lean-forward="true" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#51#0" expanded="true" />
+>>>>>>> multi-users
           </folding>
         </state>
       </provider>
