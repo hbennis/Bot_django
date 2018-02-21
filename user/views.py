@@ -38,6 +38,8 @@ def logIn(request):
     template_error = loader.get_template('user/error.html')
     if user is not None:
         login(request, user)
+        dico_users[user.username] = {}
+        #dès l'authentification, on crée une clé dans le dico_users pour contenir les connexions API de ce user
         print("user authenticated")
         return render(request, 'bot/accueil.html', locals())
 
@@ -70,4 +72,3 @@ def register(request):
     else:
         form = RegisterForm(request.POST)
     return render(request, 'user/register.html', {'form': form})
-

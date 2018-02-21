@@ -5,6 +5,7 @@ from django.shortcuts import render
 from django.contrib.auth.models import User
 from EcpBtBot.MainClass import *
 from django.http import HttpResponse
+from user.views import logIn
 
 
 
@@ -15,15 +16,13 @@ def home(request):
     return render(request, 'bot/accueil.html', locals())
 
 def view_discussion(request, sujet):
+    user = request.user.username
+    #on utilise le field 'username' de la classe User
+    if sujet not in dico_users[user]:
+        dico_users[user][sujet] = API_reponse(sujet)
+        #si l'utilisateur n'a jamais choisi ce thème, ouvrir une connexion API correspondante
 
-    #if connexion = null then connexion = API_reponse(sujet)
-        #sinon  (connexion.sujet <> sujet alors connexion = API_reponse(sujet))
-
-    if sujet not in dico_connexions:
-        connexion = API_reponse(sujet)
-        dico_connexions[sujet] = connexion
-    else:
-        connexion = dico_connexions[sujet]
+    connexion = dico_users[user][sujet]
 
     form = DiscussionForm(request.POST or None)
     objets = Reponse.objects.filter(name=request.user.username).order_by('created_at')
