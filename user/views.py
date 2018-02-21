@@ -7,6 +7,7 @@ from django.contrib import auth
 from django.template import loader
 from .forms import RegisterForm
 from bot.models import Reponse
+from EcpBtBot.MainClass import *
 
 
 def index(request):
@@ -14,11 +15,9 @@ def index(request):
         template = loader.get_template('user/index.html')
         user = getFullUserFromRequest(request)
         request.user=user
-        #return HttpResponse(template.render(request=request))
         return render(request, 'user/index.html', locals())
     except requests.ConnectionError:
         template = loader.get_template('user/error.html')
-        #return HttpResponse(template.render(request=request))
         return render(request, 'user/error.html', locals())
 
 
@@ -38,7 +37,7 @@ def logIn(request):
     template_error = loader.get_template('user/error.html')
     if user is not None:
         login(request, user)
-        dico_users[user.username] = {}
+        dico_users[request.user.id] = {}
         #dès l'authentification, on crée une clé dans le dico_users pour contenir les connexions API de ce user
         print("user authenticated")
         return render(request, 'bot/accueil.html', locals())
@@ -53,9 +52,6 @@ def logOut(request):
     auth.logout(request)
     return index(request)
 
-
-def home(request):
-    return render(request, 'user/index.html')
 
 def register(request):
     if request.method == 'POST':

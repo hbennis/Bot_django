@@ -16,13 +16,13 @@ def home(request):
     return render(request, 'bot/accueil.html', locals())
 
 def view_discussion(request, sujet):
-    user = request.user.username
+    userid = request.user.id
     #on utilise le field 'username' de la classe User
-    if sujet not in dico_users[user]:
-        dico_users[user][sujet] = API_reponse(sujet)
+    if sujet not in dico_users[userid]:
+        dico_users[userid][sujet] = API_reponse(sujet)
         #si l'utilisateur n'a jamais choisi ce thème, ouvrir une connexion API correspondante
-
-    connexion = dico_users[user][sujet]
+    print(dico_users)
+    connexion = dico_users[userid][sujet]
 
     form = DiscussionForm(request.POST or None)
     objets = Reponse.objects.filter(name=request.user.username).order_by('created_at')
