@@ -24,15 +24,19 @@ def view_discussion(request, sujet):
 
     form = DiscussionForm(request.POST or None)
     objets = Reponse.objects.filter(name=request.user.username).order_by('created_at')
-
+    #quickreplies
     if form.is_valid():
 
         message = form.cleaned_data['texte']
         envoi = True
         message_sauvegarde = Reponse(reponse = message, source = "user", name = request.user.username)
         message_sauvegarde.save()
+
+        
         repBot = connexion.reponseBot(message)
-        repBot_sauvegarde = Reponse(reponse=repBot, source = "bot", name = request.user.username)
+        print(repBot)
+        quickreplies=repBot[1]
+        repBot_sauvegarde = Reponse(reponse=repBot[0], source = "bot", name = request.user.username)
         repBot_sauvegarde.save()
 
         return render(request, 'bot/discussion.html', locals())

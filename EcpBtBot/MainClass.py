@@ -26,5 +26,14 @@ class API_reponse:
         user_message = message
 
         rep = Response(self.ai._get_json_response(user_message))
+        QuickReplies=[]
 
-        return rep.result.fulfillment.speech
+        reponseAndQuickReplies=["",[]]
+        reponseAndQuickReplies[0]=rep.result.fulfillment.speech
+        
+        for QuickReply in rep.result.fulfillment.messages:
+            if QuickReply['type']==2:
+                reponseAndQuickReplies[1]=QuickReply['replies']
+
+        return reponseAndQuickReplies
+

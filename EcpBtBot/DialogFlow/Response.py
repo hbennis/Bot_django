@@ -19,7 +19,7 @@ class Response:
 class Result:
     def __init__(self,result):
         self.result= result
-        self.action=result['action']
+        #self.action=result['action']
         self.source=result['source']
         self.resolvedQuery=result['resolvedQuery']
         self.actionIncomplete=result['actionIncomplete']
@@ -47,4 +47,3 @@ class Status:
     def __init__(self,status):
         self.code=status['code']
         self.errorType=status['errorType']
-
