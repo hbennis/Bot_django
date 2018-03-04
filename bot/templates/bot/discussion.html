@@ -49,14 +49,21 @@
         </div>
         {% endfor %}
 
+        <script>
+            function CopyIntoInput(txt) {
+                document.getElementById("id_texte").value = txt;
+            }
+        </script>
+        {% if quickreplies %}
         <div class="messaging center-block">
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-12">
                     <div class="input-group">
                         <span class="input-group-btn">
                             {% for reply in quickreplies %}
-                            <form width:"300px;" action="{% url 'view_discussion' sujet %}" method="post" class="forgot">
-                                <input class="btn btn-default" style="margin-left: 10px;" type="submit" value="{{ reply }}" />
+                            <form method="post" class="forgot">
+                                <input class="btn btn-default" style="margin-left: 10px;margin-top: 10px" value="{{ reply }}" onclick="CopyIntoInput(this.value)" />
+                                {% csrf_token %}
                             </form>
                             {% endfor %}
                         </span>
@@ -65,7 +72,7 @@
 
             </div>
         </div>
-
+        {% endif %}
         <div class="messaging center-block">
             <div class="row">
                 <div class="col-md-12">
