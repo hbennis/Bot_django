@@ -1,4 +1,5 @@
 from .forms import DiscussionForm
+from EcpBtBot.DialogFlow.Discussion_names import Discussion_names
 from .models import Reponse
 from django.shortcuts import render
 from EcpBtBot.MainClass import *
@@ -11,8 +12,9 @@ def home(request):
 
     return render(request, 'bot/accueil.html', locals())
 
-def view_discussion(request, sujet):
 
+
+def view_discussion(request, sujet):
     userid = request.user.id
     #on utilise le field 'username' de la classe User
     if sujet not in dico_users[userid]:
@@ -32,6 +34,15 @@ def view_discussion(request, sujet):
         message_sauvegarde = Reponse(reponse = message, source = "user", name = request.user.username)
         message_sauvegarde.save()
         repBot = connexion.reponseBot(message)
+
+        intent = repBot.intent
+        discussion_names = Discussion_names()
+        if intent in discussion_names.names:
+            sujet = intent
+        if intent == "Au Revoir":
+            print("[error] intent = au revoir , sujet = intro")
+            sujet= "intro"
+
         quickreplies=repBot.quickreplies
         repBot_sauvegarde = Reponse(reponse=repBot.speech, source = "bot", name = request.user.username)
         repBot_sauvegarde.save()
