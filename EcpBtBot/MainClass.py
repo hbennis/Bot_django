@@ -1,10 +1,10 @@
 
 import os
+import logging
 from .DialogFlow.API import *
 from .DialogFlow.DialogFlowResponse import *
 from .Conversational_Integration import *
 
-print("Dire Bonjour pour commencer \n")
 
 dico_users = {}
 #dictionnaire (var globale): pour chaque clé (user), on a un dictionnaire de connexions API en fonction des thèmes
@@ -23,8 +23,7 @@ class API_reponse:
         elif sujet == "intro":
             self.ai = API_Intro()
         else: 
-            print(sujet)
-            print("sujet non defini")
+            logging.critical("Sujet non defini")
 
     def reponseBot(self, message):
         #user_id = user
@@ -38,11 +37,6 @@ class API_reponse:
 class Reponse_And_QuickReplies:
     def __init__(self, reponse):
         self.speech= reponse.result.fulfillment.speech
-        self.intent=""
-        self.quickreplies=[]
-        if reponse.result.metadata :
-            self.intent=reponse.result.metadata.intentName
-        for QuickReply in reponse.result.fulfillment.messages:
-            if QuickReply['type']==2:
-                self.quickreplies=QuickReply['replies']
+        self.intent=reponse.result.metadata.intentName
+        self.quickreplies=reponse.result.fulfillment.quickreplies
     

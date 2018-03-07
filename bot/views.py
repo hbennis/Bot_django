@@ -20,7 +20,6 @@ def view_discussion(request, sujet):
     if sujet not in dico_users[userid]:
         dico_users[userid][sujet] = API_reponse(sujet)
         #si l'utilisateur n'a jamais choisi ce thème, ouvrir une connexion API correspondante
-    print(dico_users)
     connexion = dico_users[userid][sujet]
 
 
@@ -39,8 +38,7 @@ def view_discussion(request, sujet):
         discussion_names = Discussion_names()
         if intent in discussion_names.names:
             sujet = intent
-        if intent == "Au Revoir":
-            print("[error] intent = au revoir , sujet = intro")
+        if intent.upper() == "AU REVOIR":
             sujet= "intro"
 
         quickreplies=repBot.quickreplies
