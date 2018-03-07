@@ -1,0 +1,208 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{74f027de-b85b-41e4-b296-f156268352de}</ProjectGuid>
+    <ProjectHome />
+    <StartupFile>manage.py</StartupFile>
+    <SearchPath />
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <ProjectTypeGuids>{888888a0-9f3d-457c-b088-3a5042f75d52}</ProjectTypeGuids>
+    <LaunchProvider>Standard Python launcher</LaunchProvider>
+    <InterpreterId />
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
+  <PropertyGroup>
+    <VisualStudioVersion Condition=" '$(VisualStudioVersion)' == '' ">10.0</VisualStudioVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="bot\admin.py" />
+    <Compile Include="bot\apps.py" />
+    <Compile Include="bot\forms.py" />
+    <Compile Include="bot\migrations\0001_initial.py" />
+    <Compile Include="bot\migrations\0002_reponse_source.py" />
+    <Compile Include="bot\migrations\0003_reponse_created_at.py" />
+    <Compile Include="bot\migrations\0004_reponse_name.py" />
+    <Compile Include="bot\migrations\__init__.py" />
+    <Compile Include="bot\models.py" />
+    <Compile Include="bot\tests.py" />
+    <Compile Include="bot\urls.py" />
+    <Compile Include="bot\views.py" />
+    <Compile Include="bot\__init__.py" />
+    <Compile Include="Bot_django\settings.py" />
+    <Compile Include="Bot_django\urls.py" />
+    <Compile Include="Bot_django\views.py" />
+    <Compile Include="Bot_django\wsgi.py" />
+    <Compile Include="Bot_django\__init__.py" />
+    <Compile Include="EcpBtBot\Conversational_Integration.py" />
+    <Compile Include="EcpBtBot\DialogFlow\API.py" />
+    <Compile Include="EcpBtBot\DialogFlow\DialogFlowResponse.py" />
+    <Compile Include="EcpBtBot\MainClass.py" />
+    <Compile Include="manage.py" />
+    <Compile Include="user\admin.py" />
+    <Compile Include="user\apps.py" />
+    <Compile Include="user\forms.py" />
+    <Compile Include="user\migrations\__init__.py" />
+    <Compile Include="user\models.py" />
+    <Compile Include="user\tests.py" />
+    <Compile Include="user\urls.py" />
+    <Compile Include="user\views.py" />
+    <Compile Include="user\__init__.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bot\static\bot\bootstrap\css\bootstrap-theme.css" />
+    <Content Include="bot\static\bot\bootstrap\css\bootstrap-theme.min.css" />
+    <Content Include="bot\static\bot\bootstrap\css\bootstrap.css" />
+    <Content Include="bot\static\bot\bootstrap\css\bootstrap.min.css" />
+    <Content Include="bot\static\bot\bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="bot\static\bot\bootstrap\js\bootstrap.js" />
+    <Content Include="bot\static\bot\bootstrap\js\bootstrap.min.js" />
+    <Content Include="bot\static\bot\bootstrap\js\npm.js" />
+    <Content Include="bot\static\bot\cover.css" />
+    <Content Include="bot\static\bot\discussion.css" />
+    <Content Include="bot\static\bot\discussion.js" />
+    <Content Include="bot\templates\bot\accueil.html" />
+    <Content Include="bot\templates\bot\discussion.html" />
+    <Content Include="Bot_django\static\admin\css\base.css" />
+    <Content Include="Bot_django\static\admin\css\changelists.css" />
+    <Content Include="Bot_django\static\admin\css\dashboard.css" />
+    <Content Include="Bot_django\static\admin\css\fonts.css" />
+    <Content Include="Bot_django\static\admin\css\forms.css" />
+    <Content Include="Bot_django\static\admin\css\login.css" />
+    <Content Include="Bot_django\static\admin\css\rtl.css" />
+    <Content Include="Bot_django\static\admin\css\widgets.css" />
+    <Content Include="Bot_django\static\admin\fonts\LICENSE.txt" />
+    <Content Include="Bot_django\static\admin\fonts\README.txt" />
+    <Content Include="Bot_django\static\admin\img\calendar-icons.svg" />
+    <Content Include="Bot_django\static\admin\img\gis\move_vertex_off.svg" />
+    <Content Include="Bot_django\static\admin\img\gis\move_vertex_on.svg" />
+    <Content Include="Bot_django\static\admin\img\icon-addlink.svg" />
+    <Content Include="Bot_django\static\admin\img\icon-alert.svg" />
+    <Content Include="Bot_django\static\admin\img\icon-calendar.svg" />
+    <Content Include="Bot_django\static\admin\img\icon-changelink.svg" />
+    <Content Include="Bot_django\static\admin\img\icon-clock.svg" />
+    <Content Include="Bot_django\static\admin\img\icon-deletelink.svg" />
+    <Content Include="Bot_django\static\admin\img\icon-no.svg" />
+    <Content Include="Bot_django\static\admin\img\icon-unknown-alt.svg" />
+    <Content Include="Bot_django\static\admin\img\icon-unknown.svg" />
+    <Content Include="Bot_django\static\admin\img\icon-yes.svg" />
+    <Content Include="Bot_django\static\admin\img\inline-delete.svg" />
+    <Content Include="Bot_django\static\admin\img\README.txt" />
+    <Content Include="Bot_django\static\admin\img\search.svg" />
+    <Content Include="Bot_django\static\admin\img\selector-icons.svg" />
+    <Content Include="Bot_django\static\admin\img\sorting-icons.svg" />
+    <Content Include="Bot_django\static\admin\img\tooltag-add.svg" />
+    <Content Include="Bot_django\static\admin\img\tooltag-arrowright.svg" />
+    <Content Include="Bot_django\static\admin\js\actions.js" />
+    <Content Include="Bot_django\static\admin\js\actions.min.js" />
+    <Content Include="Bot_django\static\admin\js\admin\DateTimeShortcuts.js" />
+    <Content Include="Bot_django\static\admin\js\admin\RelatedObjectLookups.js" />
+    <Content Include="Bot_django\static\admin\js\calendar.js" />
+    <Content Include="Bot_django\static\admin\js\cancel.js" />
+    <Content Include="Bot_django\static\admin\js\change_form.js" />
+    <Content Include="Bot_django\static\admin\js\collapse.js" />
+    <Content Include="Bot_django\static\admin\js\collapse.min.js" />
+    <Content Include="Bot_django\static\admin\js\core.js" />
+    <Content Include="Bot_django\static\admin\js\inlines.js" />
+    <Content Include="Bot_django\static\admin\js\inlines.min.js" />
+    <Content Include="Bot_django\static\admin\js\jquery.init.js" />
+    <Content Include="Bot_django\static\admin\js\popup_response.js" />
+    <Content Include="Bot_django\static\admin\js\prepopulate.js" />
+    <Content Include="Bot_django\static\admin\js\prepopulate.min.js" />
+    <Content Include="Bot_django\static\admin\js\prepopulate_init.js" />
+    <Content Include="Bot_django\static\admin\js\SelectBox.js" />
+    <Content Include="Bot_django\static\admin\js\SelectFilter2.js" />
+    <Content Include="Bot_django\static\admin\js\timeparse.js" />
+    <Content Include="Bot_django\static\admin\js\urlify.js" />
+    <Content Include="Bot_django\static\admin\js\vendor\jquery\jquery.js" />
+    <Content Include="Bot_django\static\admin\js\vendor\jquery\jquery.min.js" />
+    <Content Include="Bot_django\static\admin\js\vendor\jquery\LICENSE-JQUERY.txt" />
+    <Content Include="Bot_django\static\admin\js\vendor\xregexp\LICENSE-XREGEXP.txt" />
+    <Content Include="Bot_django\static\admin\js\vendor\xregexp\xregexp.js" />
+    <Content Include="Bot_django\static\admin\js\vendor\xregexp\xregexp.min.js" />
+    <Content Include="Bot_django\static\bot\bootstrap\css\bootstrap-theme.css" />
+    <Content Include="Bot_django\static\bot\bootstrap\css\bootstrap-theme.min.css" />
+    <Content Include="Bot_django\static\bot\bootstrap\css\bootstrap.css" />
+    <Content Include="Bot_django\static\bot\bootstrap\css\bootstrap.min.css" />
+    <Content Include="Bot_django\static\bot\bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Bot_django\static\bot\bootstrap\js\bootstrap.js" />
+    <Content Include="Bot_django\static\bot\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Bot_django\static\bot\bootstrap\js\npm.js" />
+    <Content Include="Bot_django\static\bot\cover.css" />
+    <Content Include="Bot_django\static\bot\discussion.css" />
+    <Content Include="Bot_django\static\bot\discussion.js" />
+    <Content Include="Bot_django\static\user\bootstrap\css\bootstrap-theme.css" />
+    <Content Include="Bot_django\static\user\bootstrap\css\bootstrap-theme.min.css" />
+    <Content Include="Bot_django\static\user\bootstrap\css\bootstrap.css" />
+    <Content Include="Bot_django\static\user\bootstrap\css\bootstrap.min.css" />
+    <Content Include="Bot_django\static\user\bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Bot_django\static\user\bootstrap\js\bootstrap.js" />
+    <Content Include="Bot_django\static\user\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Bot_django\static\user\bootstrap\js\npm.js" />
+    <Content Include="Bot_django\static\user\bootstrap\signin.css" />
+    <Content Include="user\static\user\bootstrap\css\bootstrap-theme.css" />
+    <Content Include="user\static\user\bootstrap\css\bootstrap-theme.min.css" />
+    <Content Include="user\static\user\bootstrap\css\bootstrap.css" />
+    <Content Include="user\static\user\bootstrap\css\bootstrap.min.css" />
+    <Content Include="user\static\user\bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="user\static\user\bootstrap\js\bootstrap.js" />
+    <Content Include="user\static\user\bootstrap\js\bootstrap.min.js" />
+    <Content Include="user\static\user\bootstrap\js\npm.js" />
+    <Content Include="user\static\user\signin.css" />
+    <Content Include="user\templates\user\error.html" />
+    <Content Include="user\templates\user\index.html" />
+    <Content Include="user\templates\user\login.html" />
+    <Content Include="user\templates\user\register.html" />
+    <Content Include="user\templates\user\test.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bot" />
+    <Folder Include="bot\migrations" />
+    <Folder Include="bot\static\" />
+    <Folder Include="bot\static\bot" />
+    <Folder Include="bot\static\bot\bootstrap\" />
+    <Folder Include="bot\static\bot\bootstrap\css" />
+    <Folder Include="bot\static\bot\bootstrap\fonts" />
+    <Folder Include="bot\static\bot\bootstrap\js" />
+    <Folder Include="bot\templates\" />
+    <Folder Include="bot\templates\bot" />
+    <Folder Include="Bot_django" />
+    <Folder Include="Bot_django\static\" />
+    <Folder Include="Bot_django\static\admin\" />
+    <Folder Include="Bot_django\static\admin\css" />
+    <Folder Include="Bot_django\static\admin\fonts" />
+    <Folder Include="Bot_django\static\admin\img" />
+    <Folder Include="Bot_django\static\admin\img\gis" />
+    <Folder Include="Bot_django\static\admin\js" />
+    <Folder Include="Bot_django\static\admin\js\admin" />
+    <Folder Include="Bot_django\static\admin\js\vendor\" />
+    <Folder Include="Bot_django\static\admin\js\vendor\jquery" />
+    <Folder Include="Bot_django\static\admin\js\vendor\xregexp" />
+    <Folder Include="Bot_django\static\bot" />
+    <Folder Include="Bot_django\static\bot\bootstrap\" />
+    <Folder Include="Bot_django\static\bot\bootstrap\css" />
+    <Folder Include="Bot_django\static\bot\bootstrap\fonts" />
+    <Folder Include="Bot_django\static\bot\bootstrap\js" />
+    <Folder Include="Bot_django\static\user\" />
+    <Folder Include="Bot_django\static\user\bootstrap" />
+    <Folder Include="Bot_django\static\user\bootstrap\css" />
+    <Folder Include="Bot_django\static\user\bootstrap\fonts" />
+    <Folder Include="Bot_django\static\user\bootstrap\js" />
+    <Folder Include="EcpBtBot" />
+    <Folder Include="EcpBtBot\DialogFlow" />
+    <Folder Include="user" />
+    <Folder Include="user\migrations" />
+    <Folder Include="user\static\" />
+    <Folder Include="user\static\user" />
+    <Folder Include="user\static\user\bootstrap\" />
+    <Folder Include="user\static\user\bootstrap\css" />
+    <Folder Include="user\static\user\bootstrap\fonts" />
+    <Folder Include="user\static\user\bootstrap\js" />
+    <Folder Include="user\templates\" />
+    <Folder Include="user\templates\user" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
+</Project>
