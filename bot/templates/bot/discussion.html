@@ -6,11 +6,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="{% static 'bot/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'bot/bootstrap/js/bootstrap.min.js' %}">
     <link href="{% static 'bot/discussion.css' %}" rel="stylesheet">
     <!-- Font Awesome File -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="{% static 'bot/bootstrap/css/bootstrap.min.js' %}"></script>
+    <script src="{% static 'bot/bootstrap/js/bootstrap.min.js' %}"></script>
 </head>
 <body>
     {% if user.is_authenticated %}
@@ -54,25 +56,37 @@
                 document.getElementById("id_texte").value = txt;
             }
         </script>
+
+        <script>
+            function ClearQuickReplies(n) {
+                document.getElementById("HelpMe").style.visibility = "hidden";
+                for (var i = 0; i < n; i++) {
+                    document.getElementById(i).style.visibility = "visible";
+                }
+            }
+        </script>
+
         {% if quickreplies %}
         <div class="messaging center-block">
             <div class="row">
                 <div class="col-md-12">
                     <div class="input-group">
-                        <span class="input-group-btn">
-                            {% for reply in quickreplies %}
-                            <form method="post" class="forgot">
+                            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#Display_Replies" aria-expanded="false" aria-controls="Display_Replies">
+                                Afficher les réponses possibles
+                            </button>
+                            <div class="collapse" id="Display_Replies">
+                                {% for reply in quickreplies %}
                                 <input class="btn btn-default" style="margin-left: 10px;margin-top: 10px" value="{{ reply }}" onclick="CopyIntoInput(this.value)" />
-                                {% csrf_token %}
-                            </form>
-                            {% endfor %}
-                        </span>
+                                {% endfor %}
+                            </div>
                     </div>
                 </div>
-
             </div>
         </div>
         {% endif %}
+
+
+
         <div class="messaging center-block">
             <div class="row">
                 <div class="col-md-12">

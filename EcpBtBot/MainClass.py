@@ -1,7 +1,7 @@
 
 import os
 from .DialogFlow.API import *
-from .DialogFlow.Response import *
+from .DialogFlow.DialogFlowResponse import *
 from .Conversational_Integration import *
 
 print("Dire Bonjour pour commencer \n")
@@ -24,16 +24,16 @@ class API_reponse:
     def reponseBot(self, message):
         #user_id = user
         user_message = message
+        rep = DialogFlowResponse(self.ai._get_json_response(user_message))
+        rep_and_qr=Reponse_And_QuickReplies(rep)
 
-        rep = Response(self.ai._get_json_response(user_message))
-        QuickReplies=[]
-
-        reponseAndQuickReplies=["",[]]
-        reponseAndQuickReplies[0]=rep.result.fulfillment.speech
-        
-        for QuickReply in rep.result.fulfillment.messages:
+        return rep_and_qr
+    
+class Reponse_And_QuickReplies:
+    def __init__(self, reponse):
+        self.speech= reponse.result.fulfillment.speech
+        self.quickreplies=[]
+        for QuickReply in reponse.result.fulfillment.messages:
             if QuickReply['type']==2:
-                reponseAndQuickReplies[1]=QuickReply['replies']
-
-        return reponseAndQuickReplies
-
+                self.quickreplies=QuickReply['replies']
+    

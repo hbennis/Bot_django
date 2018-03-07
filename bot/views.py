@@ -28,15 +28,12 @@ def view_discussion(request, sujet):
     if form.is_valid():
 
         message = form.cleaned_data['texte']
-        envoi = True
+        #envoi = True
         message_sauvegarde = Reponse(reponse = message, source = "user", name = request.user.username)
         message_sauvegarde.save()
-
-        
         repBot = connexion.reponseBot(message)
-        print(repBot)
-        quickreplies=repBot[1]
-        repBot_sauvegarde = Reponse(reponse=repBot[0], source = "bot", name = request.user.username)
+        quickreplies=repBot.quickreplies
+        repBot_sauvegarde = Reponse(reponse=repBot.speech, source = "bot", name = request.user.username)
         repBot_sauvegarde.save()
 
         return render(request, 'bot/discussion.html', locals())
