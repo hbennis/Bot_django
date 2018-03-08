@@ -8,12 +8,12 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('bot', '0003_reponse_created_at'),
+        ('bot', '0003_Response_created_at'),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='reponse',
+            model_name='Response',
             name='name',
             field=models.TextField(blank=True, default='None', null=True),
         ),

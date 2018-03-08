@@ -13,7 +13,7 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.AddField(
-            model_name='reponse',
+            model_name='Response',
             name='source',
             field=models.TextField(blank=True, default='None', null=True),
         ),

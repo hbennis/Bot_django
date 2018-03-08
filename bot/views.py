@@ -1,48 +1,48 @@
 from .forms import DiscussionForm
-from EcpBtBot.DialogFlow.Discussion_names import Discussion_names
-from .models import Reponse
+from EcpBtBot.DialogFlow.Config import *
+from .models import Response
 from django.shortcuts import render
 from EcpBtBot.MainClass import *
 
 
 
 def home(request):
-    instance = Reponse.objects.filter(name=request.user.username).all()
+    instance = Response.objects.filter(name=request.user.username).all()
     instance.delete()
 
     return render(request, 'bot/accueil.html', locals())
 
 
 
-def view_discussion(request, sujet):
+def view_discussion(request, subject):
     userid = request.user.id
     #on utilise le field 'username' de la classe User
-    if sujet not in dico_users[userid]:
-        dico_users[userid][sujet] = API_reponse(sujet)
+    if subject not in dico_users[userid]:
+        dico_users[userid][subject] = API_Response(subject)
         #si l'utilisateur n'a jamais choisi ce thème, ouvrir une connexion API correspondante
-    connexion = dico_users[userid][sujet]
+    connexion = dico_users[userid][subject]
 
 
     form = DiscussionForm(request.POST or None)
-    objets = Reponse.objects.filter(name=request.user.username).order_by('created_at')
+    objets = Response.objects.filter(name=request.user.username).order_by('created_at')
     #quickreplies
     if form.is_valid():
 
         message = form.cleaned_data['texte']
         #envoi = True
-        message_sauvegarde = Reponse(reponse = message, source = "user", name = request.user.username)
+        message_sauvegarde = Response(Response = message, source = "user", name = request.user.username)
         message_sauvegarde.save()
-        repBot = connexion.reponseBot(message)
+        repBot = connexion.ResponseBot(message)
 
         intent = repBot.intent
-        discussion_names = Discussion_names()
-        if intent in discussion_names.names:
-            sujet = intent
+        
+        if intent in tokens:
+            subject = intent
         if intent.upper() == "AU REVOIR":
-            sujet= "intro"
+            subject= "intro"
 
         quickreplies=repBot.quickreplies
-        repBot_sauvegarde = Reponse(reponse=repBot.speech, source = "bot", name = request.user.username)
+        repBot_sauvegarde = Response(Response=repBot.speech, source = "bot", name = request.user.username)
         repBot_sauvegarde.save()
 
         return render(request, 'bot/discussion.html', locals())
