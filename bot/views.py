@@ -1,9 +1,8 @@
 from .forms import DiscussionForm
-from EcpBtBot.DialogFlow.Discussion_names import Discussion_names
+from EcpBtBot.DialogFlow.Config import *
 from .models import Reponse
 from django.shortcuts import render
-from EcpBtBot.MainClass import *
-
+from EcpBtBot.Conversational_Integration import *
 
 
 def home(request):
@@ -14,32 +13,21 @@ def home(request):
 
 
 
-def view_discussion(request, sujet):
+def view_discussion(request, subject):
     userid = request.user.id
     #on utilise le field 'username' de la classe User
-    if sujet not in dico_users[userid]:
-        dico_users[userid][sujet] = API_reponse(sujet)
-        #si l'utilisateur n'a jamais choisi ce thème, ouvrir une connexion API correspondante
-    connexion = dico_users[userid][sujet]
-
 
     form = DiscussionForm(request.POST or None)
     objets = Reponse.objects.filter(name=request.user.username).order_by('created_at')
-    #quickreplies
     if form.is_valid():
 
         message = form.cleaned_data['texte']
-        #envoi = True
         message_sauvegarde = Reponse(reponse = message, source = "user", name = request.user.username)
         message_sauvegarde.save()
-        repBot = connexion.reponseBot(message)
+        
+        repBot = Receiving_Response(message,userid)
 
-        intent = repBot.intent
-        discussion_names = Discussion_names()
-        if intent in discussion_names.names:
-            sujet = intent
-        if intent.upper() == "AU REVOIR":
-            sujet= "intro"
+        
 
         quickreplies=repBot.quickreplies
         repBot_sauvegarde = Reponse(reponse=repBot.speech, source = "bot", name = request.user.username)

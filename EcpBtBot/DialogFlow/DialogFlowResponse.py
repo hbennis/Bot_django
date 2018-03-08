@@ -1,3 +1,4 @@
+
 class DialogFlowResponse:
     """description of class"""
     def __init__(self, response):
@@ -18,7 +19,6 @@ class Result:
         self.result= result
         self.source=result['source']
         self.resolvedQuery=result['resolvedQuery']
-        self.actionIncomplete=result['actionIncomplete']
         self.parameters=result['parameters']
         self.score=result['score']
         self.contexts=result['contexts']
@@ -31,14 +31,17 @@ class Result:
 
 class Metadata:
     def __init__(self,metadata):
-        self.intentId=metadata['intentId']
-        self.webhookUsed=metadata['webhookUsed']
-        self.webhookForSlotFillingUsed=metadata['webhookForSlotFillingUsed']
-        self.intentName=metadata['intentName']
+        self.intentName=""
+        if 'intentName' in metadata.keys():
+            self.intentName=metadata['intentName']
 class Fulfillment:
     def __init__(self,fulfillment):
         self.speech=fulfillment['speech']
         self.messages=fulfillment['messages']
+        self.quickreplies=[]
+        for QuickReply in self.messages:
+            if QuickReply['type']==2:
+                self.quickreplies=QuickReply['replies']
 class Status:
     def __init__(self,status):
         self.code=status['code']
