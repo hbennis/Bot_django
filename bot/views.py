@@ -13,7 +13,7 @@ def home(request):
 
 
 
-def view_discussion(request, subject):
+def view_discussion(request):
     userid = request.user.id
     #on utilise le field 'username' de la classe User
 
@@ -24,10 +24,8 @@ def view_discussion(request, subject):
         message = form.cleaned_data['texte']
         message_sauvegarde = Reponse(reponse = message, source = "user", name = request.user.username)
         message_sauvegarde.save()
-        
-        repBot = Receiving_Response(message,userid)
 
-        
+        repBot = Receiving_Response(message,userid)
 
         quickreplies=repBot.quickreplies
         repBot_sauvegarde = Reponse(reponse=repBot.speech, source = "bot", name = request.user.username)
