@@ -2,12 +2,11 @@ from django.contrib.auth import login, authenticate
 from django.shortcuts import render
 from django.contrib.auth.models import User
 import requests
-import logging
 from django.http import HttpResponse
 from django.contrib import auth
 from django.template import loader
 from .forms import RegisterForm
-from bot.models import Response
+from bot.models import Reponse
 from EcpBtBot.MainClass import *
 
 
@@ -40,15 +39,15 @@ def logIn(request):
         login(request, user)
         dico_users[request.user.id] = {}
         #dès l'authentification, on crée une clé dans le dico_users pour contenir les connexions API de ce user
-        logging.info("user authenticated")
+        print("user authenticated")
         return render(request, 'bot/accueil.html', locals())
 
     else:
-        logging.info("wrong authentication")
+        print("wrong authentication")
         return HttpResponse(template_error.render(request=request))
 
 def logOut(request):
-    instance = Response.objects.filter(name=request.user.username).all()
+    instance = Reponse.objects.filter(name=request.user.username).all()
     instance.delete()
     auth.logout(request)
     return index(request)
@@ -58,12 +57,12 @@ def register(request):
     if request.method == 'POST':
         form = RegisterForm(request.POST)
         if form.is_valid():
-            logging.info(User.objects.filter(username=form.data['username']).exists())
+            print(User.objects.filter(username=form.data['username']).exists())
             if User.objects.filter(username=form.data['username']).exists() == False:
 
                 user = User.objects.create_user(form.data['username'], form.data['email'], form.data['password'])
                 user.save()
-                logging.info(user)
+                print(user)
                 login(request, user)
                 return render(request, 'bot/accueil.html')
     else:

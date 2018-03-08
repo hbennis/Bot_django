@@ -14,10 +14,10 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='Response',
+            name='Reponse',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('Response', models.CharField(max_length=100)),
+                ('reponse', models.CharField(max_length=100)),
             ],
         ),
     ]

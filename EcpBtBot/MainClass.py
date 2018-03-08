@@ -1,36 +1,42 @@
 
-import logging
 import os
-from .Conversational_Integration import *
+import logging
 from .DialogFlow.API import *
 from .DialogFlow.DialogFlowResponse import *
-from .DialogFlow.Config import *
-
+from .Conversational_Integration import *
 
 
 dico_users = {}
-"""
-dictionnaire (var globale): pour chaque clé (user), on a un dictionnaire de connexions API en fonction des thèmes
-"""
+#dictionnaire (var globale): pour chaque clé (user), on a un dictionnaire de connexions API en fonction des thèmes
 
-class API_Response(object):
+class API_reponse:
 
-    def __init__(self, subject):
-
-        
-        if subject in tokens:
-            self.ai = API_Connection(subject)
+    def __init__(self, sujet):
+        if sujet == "Se_presenter":
+            self.ai = API_SePresenter()
+        elif sujet == "Hôtel":
+            self.ai = API_Hotel()
+        elif sujet == "Restaurant":
+            self.ai = API_Restaurant()
+        elif sujet == "Boulangerie":
+            self.ai = API_Boulangerie()
+        elif sujet == "intro":
+            self.ai = API_Intro()
         else: 
-            logging.critical("Subject non defined")
+            logging.critical("Sujet non defini")
 
-    def ResponseBot(self, message):
-        rep = DialogFlowResponse(self.ai._get_json_response(message))
-        rep_and_qr=Response_And_QuickReplies(rep)
+    def reponseBot(self, message):
+        #user_id = user
+        user_message = message
+        rep = DialogFlowResponse(self.ai._get_json_response(user_message))
+        
+        rep_and_qr=Reponse_And_QuickReplies(rep)
+
         return rep_and_qr
     
-class Response_And_QuickReplies:
-    def __init__(self, Response):
-        self.speech = Response.result.fulfillment.speech
-        self.intent = Response.result.metadata.intentName
-        self.quickreplies = Response.result.fulfillment.quickreplies
+class Reponse_And_QuickReplies:
+    def __init__(self, reponse):
+        self.speech= reponse.result.fulfillment.speech
+        self.intent=reponse.result.metadata.intentName
+        self.quickreplies=reponse.result.fulfillment.quickreplies
     

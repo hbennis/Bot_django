@@ -9,12 +9,12 @@ import django.utils.timezone
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('bot', '0002_Response_source'),
+        ('bot', '0002_reponse_source'),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='Response',
+            model_name='reponse',
             name='created_at',
             field=models.DateTimeField(auto_now_add=True, default=django.utils.timezone.now),
             preserve_default=False,

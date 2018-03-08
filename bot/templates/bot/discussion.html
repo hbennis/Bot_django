@@ -92,7 +92,7 @@
                 <div class="col-md-12">
                     <div class="input-group">
                         <span class="input-group-btn">
-                            <form action="{% url 'view_discussion' subject %}" method="post">
+                            <form action="{% url 'view_discussion' sujet %}" method="post">
                                 <label for="id_texte"> </label>
                                 <input id="id_texte" type="text" name="texte" class="form-control" />
                                 {% csrf_token %}
