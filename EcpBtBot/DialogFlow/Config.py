@@ -1,9 +1,8 @@
-
-#"""
-#This file contains a dico of keys=subject values=tokens
-#TODO: This class will be changed by an external file that will contain
-#subjects and tokens. 
-#"""
+"""
+This file contains a dico of keys=subject values=tokens
+TODO: This class will be changed by an external file that will contain
+subjects and tokens. 
+"""
 
 tokens = {"Hôtel":'e3b0442b092c4e38a4cad3d9441d384f',
                     "Se_presenter":'868aec3d1e0f408392c3c2993fb05cfa',
