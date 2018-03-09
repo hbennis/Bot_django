@@ -29,19 +29,22 @@ class Result:
     def fulfillment(self):
         return Fulfillment(self.result['fulfillment'])
 
+
 class Metadata:
     def __init__(self,metadata):
-        self.intentName=""
-        if 'intentName' in metadata.keys():
-            self.intentName=metadata['intentName']
+        self.intentName=self.intentName=metadata.get('intentName','')
+            
+
 class Fulfillment:
     def __init__(self,fulfillment):
         self.speech=fulfillment['speech']
         self.messages=fulfillment['messages']
         self.quickreplies=[]
-        for QuickReply in self.messages:
-            if QuickReply['type']==2:
-                self.quickreplies=QuickReply['replies']
+        for quickReply in self.messages:
+            if quickReply.get('type','') == 2:
+                self.quickreplies=quickReply.get('replies',[])
+
+
 class Status:
     def __init__(self,status):
         self.code=status['code']

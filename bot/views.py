@@ -1,8 +1,7 @@
 from .forms import DiscussionForm
-from EcpBtBot.DialogFlow.Config import *
 from .models import Reponse
 from django.shortcuts import render
-from EcpBtBot.Conversational_Integration import *
+from EcpBtBot.Conversational_Integration import Receiving_Response
 
 
 def home(request):

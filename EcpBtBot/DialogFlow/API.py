@@ -2,7 +2,6 @@
 import json
 import os
 import sys
-from .Config import *
 
 try:
     import apiai
@@ -18,11 +17,15 @@ except ImportError:
 
 
 class API_Connection:
-    def __init__(self,subject):
+    def __init__(self,subject,client_tokens):
         """
         #Connexion api
         """
-        CLIENT_ACCESS_TOKEN = tokens[subject]
+        if subject in client_tokens:
+           CLIENT_ACCESS_TOKEN = client_tokens[subject]
+        else: 
+            logging.error("Subject non defined")
+        
         self.ai=apiai.ApiAI(CLIENT_ACCESS_TOKEN)
         
     def _get_json_response(self,user_message):
