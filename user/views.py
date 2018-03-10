@@ -1,15 +1,14 @@
+import logging
+import requests
+from bot.models import Reponse
 from django.contrib.auth import login, authenticate
 from django.shortcuts import render
 from django.contrib.auth.models import User
-import requests
-import logging
 from django.http import HttpResponse
 from django.contrib import auth
 from django.template import loader
-from .forms import RegisterForm
-from bot.models import Reponse
 from EcpBtBot.MainClass import *
-
+from .forms import RegisterForm
 
 
 def index(request):

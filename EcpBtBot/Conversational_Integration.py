@@ -1,22 +1,27 @@
-from EcpBtBot.MainClass import API_Response,dico_users
+from .Users.Users_Agents import Users_Agents
+from EcpBtBot.MainClass import API_Response
 
+users_agents=Users_Agents()
 
 def Receiving_Response(message,userid):
-    #initialisation du sujet
-    if "subject" not in dico_users[userid]:
-        dico_users[userid]["subject"] = "intro"
+    """
+    Send the response(speech and quick replies) of the bot for a given user
+    """
+    users_agents.connectMember(userid)
 
-    subject = dico_users[userid].get("subject",None)
-
-    if subject not in dico_users[userid]:
-        dico_users[userid][subject] = API_Response(subject)
-        #si l'utilisateur n'a jamais choisi ce thème, ouvrir une connexion API correspondante
-    connexion = dico_users[userid].get(subject,None)
+    subject = users_agents.members.get(userid).subject
+    users_agents.members.get(userid).checkConnection(subject)
+    connexion = users_agents.members.get(userid).connectedAgents.get(subject)
+    
+    client_tokens = connexion.client_tokens
     repBot = connexion.responseBot(message)
     intent = repBot.intent
-        
-    if intent in client_tokens.keys():
-        dico_users[userid]["subject"] = intent
-    if intent.upper() == "AU REVOIR":
-        dico_users[userid]["subject"] = "intro"
+
+    if intent in client_tokens:
+        users_agents.members.get(userid).subject = intent
+
+    if intent.upper() == 'AU REVOIR':
+        users_agents.members.get(userid).disconnectAgent(subject)
+        users_agents.members.get(userid).subject = 'intro'
+
     return repBot

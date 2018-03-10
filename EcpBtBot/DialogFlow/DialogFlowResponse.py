@@ -1,33 +1,32 @@
 
 class DialogFlowResponse:
-    """description of class"""
+    """Response from DialogFlow"""
     def __init__(self, response):
-        """Constructeur de notre classe"""
         self.response=response
-        self.id =  response['id']
-        self.timestamp =  response['timestamp']
-        self.lang =  response['lang']
+        self.id =  response.get('id',None)
+        self.timestamp =  response.get('timestamp',None)
+        self.lang =  response.get('lang',None)
     @property
     def result(self):
-        return Result(self.response['result'])
+        return Result(self.response.get('result',None))
     @property
     def status(self):
-        return Status(self.response['status'])
+        return Status(self.response.get('status',None))
 
 class Result:
     def __init__(self,result):
         self.result= result
-        self.source=result['source']
-        self.resolvedQuery=result['resolvedQuery']
-        self.parameters=result['parameters']
-        self.score=result['score']
-        self.contexts=result['contexts']
+        self.source=result.get('source',None)
+        self.resolvedQuery=result.get('resolvedQuery',None)
+        self.parameters=result.get('parameters',None)
+        self.score=result.get('score',None)
+        self.contexts=result.get('contexts',None)
     @property
     def metadata(self):
-        return Metadata(self.result['metadata'])
+        return Metadata(self.result.get('metadata',None))
     @property
     def fulfillment(self):
-        return Fulfillment(self.result['fulfillment'])
+        return Fulfillment(self.result.get('fulfillment',None))
 
 
 class Metadata:
@@ -37,8 +36,8 @@ class Metadata:
 
 class Fulfillment:
     def __init__(self,fulfillment):
-        self.speech=fulfillment['speech']
-        self.messages=fulfillment['messages']
+        self.speech=fulfillment.get('speech',None)
+        self.messages=fulfillment.get('messages',None)
         self.quickreplies=[]
         for quickReply in self.messages:
             if quickReply.get('type','') == 2:
@@ -47,5 +46,5 @@ class Fulfillment:
 
 class Status:
     def __init__(self,status):
-        self.code=status['code']
-        self.errorType=status['errorType']
+        self.code=status.get('code',None)
+        self.errorType=status.get('errorType',None)
