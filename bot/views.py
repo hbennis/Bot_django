@@ -20,7 +20,7 @@ def view_discussion(request):
     objets = Reponse.objects.filter(name=request.user.username).order_by('created_at')
     if form.is_valid():
 
-        message = form.cleaned_data['texte']
+        message = form.cleaned_data.get('texte','')
         message_sauvegarde = Reponse(reponse = message, source = "user", name = request.user.username)
         message_sauvegarde.save()
 

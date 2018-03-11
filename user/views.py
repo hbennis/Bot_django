@@ -38,8 +38,6 @@ def logIn(request):
     template_error = loader.get_template('user/error.html')
     if user is not None:
         login(request, user)
-        dico_users[request.user.id] = {}
-        #dès l'authentification, on crée une clé dans le dico_users pour contenir les connexions API de ce user
         logging.info("user authenticated")
         return render(request, 'bot/accueil.html', locals())
 
