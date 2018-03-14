@@ -5,4 +5,4 @@ class ReponseSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Reponse
-        fields = ('reponse', 'created_at','id')
+        fields = ('success', 'error', 'reponse')

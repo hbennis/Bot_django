@@ -9,7 +9,7 @@ from django.contrib import auth
 from django.template import loader
 from EcpBtBot.MainClass import *
 from .forms import RegisterForm
-
+from EcpBtBot.Conversational_Integration import *
 
 def index(request):
     try:
@@ -48,6 +48,7 @@ def logIn(request):
 def logOut(request):
     instance = Reponse.objects.filter(name=request.user.username).all()
     instance.delete()
+    users_agents.removeDisconnectedMember(request.user.id)
     auth.logout(request)
     return index(request)
 

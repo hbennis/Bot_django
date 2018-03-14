@@ -9,6 +9,8 @@ class Reponse(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     source = models.TextField(blank = True, null = True, default='None')
     name = models.TextField(blank = True, null = True, default='None')
+    success = models.NullBooleanField(blank=True, default=True)
+    error = models.TextField(blank=True, null=True, default='None')
 
     def __str__(self):
         return self.reponse
