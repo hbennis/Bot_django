@@ -6,14 +6,10 @@ from bot.serializers import ReponseSerializer
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
-from django.http import Http404
 from django.contrib.auth.models import User
 
 def home(request):
-
     return render(request, 'bot/accueil.html', locals())
-
-
 
 def view_discussion(request):
     userid = request.user.id
