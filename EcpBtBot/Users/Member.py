@@ -2,7 +2,7 @@ from EcpBtBot.MainClass import API_Response
 
 class Member(object):
     def __init__(self,userid):
-        self.members={}
+        
         self.connectedAgents={}
         self.subject='intro'
         self.connectedAgents['intro'] = API_Response('intro')
