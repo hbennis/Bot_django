@@ -1,39 +1,33 @@
 
+import logging
 import os
-from .DialogFlow.API import *
-from .DialogFlow.DialogFlowResponse import *
 from .Conversational_Integration import *
+from .DialogFlow.API import API_Connection
+from .DialogFlow.DialogFlowResponse import DialogFlowResponse
 
-print("Dire Bonjour pour commencer \n")
+class API_Response(object):
+    """ Handles the connexion to the agents """
+    def __init__(self, subject):
+        #TODO: Add a function to import client tokens from an extenal db 
+        #(Bonus: control this db with an admin access)
+        self.client_tokens={
+            "Hôtel":'e3b0442b092c4e38a4cad3d9441d384f',
+            "Se_presenter":'868aec3d1e0f408392c3c2993fb05cfa',
+            "Restaurant":'b4b73e19f24c441280fac1fe63297c0b',
+            "Boulangerie":'a690134a714c47d6b3aa45f3d470d100',
+            "intro":'2037ebf0bdb4466fb5c675a8afcec15a'
+        }
+        self.ai = API_Connection(subject,self.client_tokens)
 
-dico_users = {}
-#dictionnaire (var globale): pour chaque clé (user), on a un dictionnaire de connexions API en fonction des thèmes
-
-class API_reponse:
-
-    def __init__(self, sujet):
-        if sujet == "sepresenter":
-            self.ai = API_SePresenter()
-        elif sujet == "hotel":
-            self.ai = API_Hotel()
-        elif sujet == "restaurant":
-            self.ai = API_Restaurant()
-        elif sujet == "boulangerie":
-            self.ai = API_Boulangerie()
-
-    def reponseBot(self, message):
-        #user_id = user
-        user_message = message
-        rep = DialogFlowResponse(self.ai._get_json_response(user_message))
-        rep_and_qr=Reponse_And_QuickReplies(rep)
-
+    def responseBot(self, message):
+        rep = DialogFlowResponse(self.ai._get_json_response(message))
+        rep_and_qr=Response_And_QuickReplies(rep)
         return rep_and_qr
     
-class Reponse_And_QuickReplies:
-    def __init__(self, reponse):
-        self.speech= reponse.result.fulfillment.speech
-        self.quickreplies=[]
-        for QuickReply in reponse.result.fulfillment.messages:
-            if QuickReply['type']==2:
-                self.quickreplies=QuickReply['replies']
+
+class Response_And_QuickReplies:
+    def __init__(self, Response):
+        self.speech = Response.result.fulfillment.speech
+        self.intent = Response.result.metadata.intentName
+        self.quickreplies = Response.result.fulfillment.quickreplies
     
