@@ -71,7 +71,7 @@ def register(request):
                 user = User.objects.create_user(form.data['username'], form.data['email'], form.data['password'])
                 user.save()
                 user_bdd = Users_bdd(user = user, connected = False, current_subject = 'intro')
-                user.save()
+                user_bdd.save()
                 print(user.users_bdd, "ok")
                 logging.info(user)
                 login(request, user)
