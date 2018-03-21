@@ -1,5 +1,5 @@
 from .forms import DiscussionForm
-from .models import Discussion, Tokens, Users
+from .models import Discussion, Tokens, Users_bdd
 from django.shortcuts import render
 from EcpBtBot.Conversational_Integration import Receiving_Response
 from bot.serializers import ReponseSerializer
@@ -12,21 +12,19 @@ def home(request):
     return render(request, 'bot/accueil.html', locals())
 
 def view_discussion(request):
-    current_user = Users(user=request.user, connected=True)
-    current_user.save()
 
     form = DiscussionForm(request.POST or None)
     objets = Discussion.objects.filter(uid = request.user.id).order_by('created_at')
     if form.is_valid():
 
         message = form.cleaned_data.get('texte','')
-        message_sauvegarde = Discussion(reponse = message, source = "user", uid = current_user)
+        message_sauvegarde = Discussion(reponse = message, source = "user", uid = request.user.users_bdd)
         message_sauvegarde.save()
 
         repBot = Receiving_Response(message,request.user.id)
 
         quickreplies=repBot.quickreplies
-        repBot_sauvegarde = Discussion(reponse=repBot.speech, source = "bot", uid = current_user)
+        repBot_sauvegarde = Discussion(reponse=repBot.speech, source = "bot", uid = request.user.users_bdd)
         repBot_sauvegarde.save()
 
         return render(request, 'bot/discussion.html', locals())

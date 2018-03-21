@@ -1,6 +1,6 @@
 import logging
 import requests
-from bot.models import Discussion
+from bot.models import Discussion, Users_bdd
 from django.contrib.auth import login, authenticate
 from django.shortcuts import render
 from django.contrib.auth.models import User
@@ -38,7 +38,10 @@ def logIn(request):
     template_error = loader.get_template('user/error.html')
     if user is not None:
         login(request, user)
-        print("user authenticated")
+        user.save()
+        userbis = User.objects.get(username = request.POST['username'])
+        print(userbis.users_bdd.connected)
+        user.users_bdd.connected = True
         logging.info("user authenticated")
         return render(request, 'bot/accueil.html', locals())
 
@@ -49,7 +52,11 @@ def logIn(request):
 def logOut(request):
     instance = Discussion.objects.filter(uid=request.user.id).all()
     instance.delete()
+    ##to-do: ne plus supprimer toutes les discussions
     users_agents.removeDisconnectedMember(request.user.id)
+    print(request.user.users_bdd.connected)
+    request.user.users_bdd.connected = False
+    request.user.users_bdd.current_subject = 'intro'
     auth.logout(request)
     return index(request)
 
@@ -63,6 +70,9 @@ def register(request):
 
                 user = User.objects.create_user(form.data['username'], form.data['email'], form.data['password'])
                 user.save()
+                user_bdd = Users_bdd(user = user, connected = False, current_subject = 'intro')
+                user.save()
+                print(user.users_bdd, "ok")
                 logging.info(user)
                 login(request, user)
                 return render(request, 'bot/accueil.html')

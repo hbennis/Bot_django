@@ -26,10 +26,10 @@ class Tokens(models.Model):
     difficulty = models.CharField(max_length=100)
 
 
-class Users(models.Model):
+class Users_bdd(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     connected = models.BooleanField(blank=True, default=True)
-    current_subject = models.ForeignKey(Tokens, on_delete=models.CASCADE)
+    current_subject = models.CharField(max_length=100)
     #subjects_done = models.ForeignKey(Discussion, on_delete=models.CASCADE)
 
 # class Subjects(models.Model):
@@ -44,7 +44,7 @@ class Users(models.Model):
 class Discussion(models.Model):
     subject = models.CharField(max_length=100)
     reponse = models.CharField(max_length=100)
-    uid = models.ForeignKey(Users, on_delete=models.CASCADE)
+    uid = models.ForeignKey(Users_bdd, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     source = models.TextField(blank=True, null=True, default='None')
     success = models.NullBooleanField(blank=True, default=True)
