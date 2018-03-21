@@ -1,5 +1,5 @@
 from .forms import DiscussionForm
-from .models import Reponse
+from .models import Discussion, Tokens, Users
 from django.shortcuts import render
 from EcpBtBot.Conversational_Integration import Receiving_Response
 from bot.serializers import ReponseSerializer
@@ -16,17 +16,20 @@ def view_discussion(request):
     #on utilise le field 'username' de la classe User
 
     form = DiscussionForm(request.POST or None)
-    objets = Reponse.objects.filter(name=request.user.username).order_by('created_at')
+    #objets = Reponse.objects.filter(name=request.user.username).order_by('created_at')
+    objets = Discussion.objects.filter(uid = userid).order_by('created_at')
     if form.is_valid():
 
         message = form.cleaned_data.get('texte','')
-        message_sauvegarde = Reponse(reponse = message, source = "user", name = request.user.username)
+        #message_sauvegarde = Reponse(reponse = message, source = "user", name = request.user.username)
+        message_sauvegarde = Discussion(reponse = message, source = "user", name = userid)
         message_sauvegarde.save()
 
         repBot = Receiving_Response(message,userid)
 
         quickreplies=repBot.quickreplies
-        repBot_sauvegarde = Reponse(reponse=repBot.speech, source = "bot", name = request.user.username)
+        repBot_sauvegarde = Discussion(reponse=repBot.speech, source = "bot", uid = userid)
+        #repBot_sauvegarde = Reponse(reponse=repBot.speech, source = "bot", name = request.user.username)
         repBot_sauvegarde.save()
 
         return render(request, 'bot/discussion.html', locals())
