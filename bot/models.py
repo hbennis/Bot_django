@@ -20,21 +20,29 @@ from django.contrib.auth.models import User
 #         return ('view_blog_category', None, {'reponse': self.reponse})
 
 
-class Users(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
-    connected = models.BooleanField(blank=True, default=True)
-    current_subject = models.CharField(max_length=100)
-    subjects_done = models.ForeignKey(Discussion, on_delete=models.CASCADE)
-
-
 class Tokens(models.Model):
-    subject = models.OneToOneField(Users, on_delete=models.CASCADE, primary_key=True,)
+    subject =models.CharField(max_length=100)
     token = models.CharField(max_length=100)
     difficulty = models.CharField(max_length=100)
 
 
+class Users(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    connected = models.BooleanField(blank=True, default=True)
+    current_subject = models.ForeignKey(Tokens, on_delete=models.CASCADE)
+    #subjects_done = models.ForeignKey(Discussion, on_delete=models.CASCADE)
+
+# class Subjects(models.Model):
+#     subject = models.CharField(max_length=100)
+#     user = models.ForeignKey(Users, on_delete=models.CASCADE)
+#     value = models.BooleanField(blank=True, default=False)
+#     subject = models.CharField(max_length=100)
+#     token = models.CharField(max_length=100)
+#     difficulty = models.CharField(max_length=100)
+#
+#
 class Discussion(models.Model):
-    subject = models.ForeignKey(Tokens, on_delete=models.CASCADE)
+    subject = models.CharField(max_length=100)
     reponse = models.CharField(max_length=100)
     uid = models.ForeignKey(Users, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)

@@ -12,24 +12,21 @@ def home(request):
     return render(request, 'bot/accueil.html', locals())
 
 def view_discussion(request):
-    userid = request.user.id
-    #on utilise le field 'username' de la classe User
+    current_user = Users(user=request.user, connected=True)
+    current_user.save()
 
     form = DiscussionForm(request.POST or None)
-    #objets = Reponse.objects.filter(name=request.user.username).order_by('created_at')
-    objets = Discussion.objects.filter(uid = userid).order_by('created_at')
+    objets = Discussion.objects.filter(uid = request.user.id).order_by('created_at')
     if form.is_valid():
 
         message = form.cleaned_data.get('texte','')
-        #message_sauvegarde = Reponse(reponse = message, source = "user", name = request.user.username)
-        message_sauvegarde = Discussion(reponse = message, source = "user", name = userid)
+        message_sauvegarde = Discussion(reponse = message, source = "user", uid = current_user)
         message_sauvegarde.save()
 
-        repBot = Receiving_Response(message,userid)
+        repBot = Receiving_Response(message,request.user.id)
 
         quickreplies=repBot.quickreplies
-        repBot_sauvegarde = Discussion(reponse=repBot.speech, source = "bot", uid = userid)
-        #repBot_sauvegarde = Reponse(reponse=repBot.speech, source = "bot", name = request.user.username)
+        repBot_sauvegarde = Discussion(reponse=repBot.speech, source = "bot", uid = current_user)
         repBot_sauvegarde.save()
 
         return render(request, 'bot/discussion.html', locals())

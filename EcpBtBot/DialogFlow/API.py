@@ -15,8 +15,6 @@ except ImportError:
         )
     )
 
-
-
 class API_Connection:
     def __init__(self,subject,client_tokens):
         """

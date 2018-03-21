@@ -1,6 +1,6 @@
 import logging
 import requests
-from bot.models import Reponse
+from bot.models import Discussion
 from django.contrib.auth import login, authenticate
 from django.shortcuts import render
 from django.contrib.auth.models import User
@@ -38,6 +38,7 @@ def logIn(request):
     template_error = loader.get_template('user/error.html')
     if user is not None:
         login(request, user)
+        print("user authenticated")
         logging.info("user authenticated")
         return render(request, 'bot/accueil.html', locals())
 
@@ -46,7 +47,7 @@ def logIn(request):
         return HttpResponse(template_error.render(request=request))
 
 def logOut(request):
-    instance = Reponse.objects.filter(name=request.user.username).all()
+    instance = Discussion.objects.filter(uid=request.user.id).all()
     instance.delete()
     users_agents.removeDisconnectedMember(request.user.id)
     auth.logout(request)
