@@ -1,11 +1,14 @@
 from EcpBtBot.MainClass import API_Response
+from django.contrib.auth.models import User
+from bot.models import Discussion, Users_bdd
 
 class Member(object):
     def __init__(self,userid):
 
+        self.user = User.objects.get(id=userid)
         self.connectedAgents={}
-        self.subject='intro'
-        self.connectedAgents['intro'] = API_Response('intro')
+        self.subject=self.user.users_bdd.current_subject
+        self.connectedAgents[self.subject] = API_Response(self.subject)
         
     def connectToAgent(self, subject):
         #subject = subject == '' gérer le cas au revoir/intent

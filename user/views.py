@@ -39,8 +39,6 @@ def logIn(request):
     if user is not None:
         login(request, user)
         user.save()
-        userbis = User.objects.get(username = request.POST['username'])
-        print(userbis.users_bdd.connected)
         user.users_bdd.connected = True
         logging.info("user authenticated")
         return render(request, 'bot/accueil.html', locals())
@@ -54,7 +52,6 @@ def logOut(request):
     instance.delete()
     ##to-do: ne plus supprimer toutes les discussions
     users_agents.removeDisconnectedMember(request.user.id)
-    print(request.user.users_bdd.connected)
     request.user.users_bdd.connected = False
     request.user.users_bdd.current_subject = 'intro'
     auth.logout(request)
@@ -72,7 +69,6 @@ def register(request):
                 user.save()
                 user_bdd = Users_bdd(user = user, connected = False, current_subject = 'intro')
                 user_bdd.save()
-                print(user.users_bdd, "ok")
                 logging.info(user)
                 login(request, user)
                 return render(request, 'bot/accueil.html')

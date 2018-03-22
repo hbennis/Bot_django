@@ -9,10 +9,12 @@ class Users_Agents(object):
             self.addConnectMember(userid)
 
     def addConnectMember(self, userid):
-        user=Member(userid)
-        self.members[userid] = user
+        member=Member(userid)
+        member.user.users_bdd.connected = True
+        self.members[userid] = member
 
     def removeDisconnectedMember(self, userid):
+        self.members[userid].user.users_bdd.connected = False
         self.members.pop(userid,None)
 
 
