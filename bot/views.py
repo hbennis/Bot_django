@@ -20,13 +20,14 @@ def view_discussion(request):
     if form.is_valid():
 
         message = form.cleaned_data.get('texte','')
-        message_sauvegarde = Reponse(reponse = message, source = "user", name = request.user.username)
+        print(message)
+        message_sauvegarde = Reponse(reponse=message, source="user", name=request.user.username)
         message_sauvegarde.save()
 
         repBot = Receiving_Response(message,userid)
 
         quickreplies=repBot.quickreplies
-        repBot_sauvegarde = Reponse(reponse=repBot.speech, source = "bot", name = request.user.username)
+        repBot_sauvegarde = Reponse(reponse=repBot.speech, source="bot", name=request.user.username)
         repBot_sauvegarde.save()
 
         return render(request, 'bot/discussion.html', locals())
@@ -43,12 +44,15 @@ class UserList(APIView):
         if user is not in the User database, success = False'''
 
         dico = dict()
-        userid = request.data.get("name", None)
-        if not len(list(User.objects.filter(username=userid))):
-            userid = User.objects.create_user(request.data['name'], "default", "default")
+        user_name = request.data.get("name", None)
+        if not len(list(User.objects.filter(username=user_name))):
+            user = User.objects.create_user(request.data['name'], "default", "default")
+        else:
+            user = User.objects.get(username=user_name)
         message = request.data["reponse"]
-        repBot = Receiving_Response(message,userid).speech
-        quickreplies = Receiving_Response(message,userid).quickreplies
+        print(user.id)
+        repBot = Receiving_Response(message,user.id).speech
+        quickreplies = Receiving_Response(message,user.id).quickreplies
         dico["reponse"]=repBot
         dico["quickreplies"]=str(quickreplies)
         serializer = ReponseSerializer(data=dico)
