@@ -43,17 +43,14 @@ class UserList(APIView):
         if user is not in the User database, success = False'''
 
         dico = dict()
-        userid = request.data.get("id", None)
-
-        if not len(list(User.objects.filter(id=userid))):
-            dico["success"] = False
-            dico["error"] = 'User not valid'
-            dico["reponse"] = 'None'
-        else:
-            message = request.data["reponse"]
-            repBot = Receiving_Response(message,userid).speech
-            dico["reponse"]=repBot
-
+        userid = request.data.get("name", None)
+        if not len(list(User.objects.filter(username=userid))):
+            userid = User.objects.create_user(request.data['name'], "default", "default")
+        message = request.data["reponse"]
+        repBot = Receiving_Response(message,userid).speech
+        quickreplies = Receiving_Response(message,userid).quickreplies
+        dico["reponse"]=repBot
+        dico["quickreplies"]=str(quickreplies)
         serializer = ReponseSerializer(data=dico)
         if serializer.is_valid():
             serializer.save()

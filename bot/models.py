@@ -11,6 +11,7 @@ class Reponse(models.Model):
     name = models.TextField(blank = True, null = True, default='None')
     success = models.NullBooleanField(blank=True, default=True)
     error = models.TextField(blank=True, null=True, default='None')
+    quickreplies = models.TextField(blank=True, null=True, default='None')
 
     def __str__(self):
         return self.reponse
