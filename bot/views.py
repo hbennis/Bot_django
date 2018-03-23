@@ -51,10 +51,10 @@ class UserList(APIView):
             user = User.objects.get(username=user_name)
         message = request.data["reponse"]
         print(user.id)
-        repBot = Receiving_Response(message,user.id).speech
-        quickreplies = Receiving_Response(message,user.id).quickreplies
-        dico["reponse"]=repBot
-        dico["quickreplies"]=str(quickreplies)
+        repBot = Receiving_Response(message,user.id)
+        #quickreplies = Receiving_Response(message,user.id).quickreplies
+        dico["reponse"]=repBot.speech
+        dico["quickreplies"]=str(repBot.quickreplies)
         serializer = ReponseSerializer(data=dico)
         if serializer.is_valid():
             serializer.save()
